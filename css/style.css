@@ -1,0 +1,494 @@
+/* 
+
+Dark Green: #164A41
+
+Medium Green: #4D774E
+
+Light Green: #9DC88D
+
+Natural Yellow: #F1B24A
+
+White: #FFFFFF 
+
+font-family: 'Montserrat', sans-serif;
+*/
+
+*{
+    box-sizing: border-box;
+    /* 
+    Add a css reset to the top of your website style sheet, different browsers render some 
+    default margin and padding and perhaps external style sheets do something you are not aware of too,
+    a css reset will just initialize a fresh palette so to speak */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body{
+    margin: 0 auto;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #404040;
+    line-height: 1.6;
+
+
+}
+
+img{
+    max-width: 100%;
+
+}
+/* ---------------------------------
+        General layout
+------------------------------------*/
+.main-grid{
+    display: grid;
+    grid-template-columns: minmax(1em, 1fr) minmax(0px, 500px)  minmax(1em, 1fr);
+    column-gap: 2em ;
+}
+
+
+
+@media (min-width: 600px){
+    .main-grid{
+        grid-template-columns: minmax(1em, 1fr) repeat(3, minmax(180px,320px))  minmax(1em, 1fr);
+
+    } 
+}
+
+
+/* ---------------------------------
+        Typography
+------------------------------------*/
+h1,
+h2,
+strong{
+    font-weight: 700;
+}
+
+p{
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.btn {
+    text-decoration: none;
+    text-transform: lowercase;
+    font-size: .875rem;
+    font-weight: 700;
+    padding: .5em 1.75em;
+    margin-top: .5em;   
+}
+
+.page-title,
+.subtitle {
+    grid-column: 2 / -2;
+    color:#164A41;
+    text-align: center;
+}
+.page-title{
+    font-size: 3rem;
+    margin-bottom: .5em;
+    justify-self: center;
+}
+
+.page-title::after{
+    content: "";
+    display:  block;
+    width: 100%;
+    height: 30px;
+    background:#F1B24A ;
+    margin-top: -40px;
+    margin-left: 15px;
+    
+}
+.subtitle {
+    margin: 0.5em auto 2em auto;
+    font-size: 1.125rem;
+    width: 70%;
+}
+
+.subtitle::after{
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #4D774E ;
+    margin: 1em auto;
+}
+
+/* ---------------------------------
+        Navigation 
+------------------------------------*/
+.header{
+    background-color:#4D774E;
+}
+
+/* header-home style only apply for index, delete header-home in html of other pages */
+.header-home{
+    background: transparent;
+    position: absolute;
+    width: 100%;
+}
+
+.header-content{
+    display: flex;
+    grid-column: 2/-2;
+    margin: 0;
+}
+
+.logo-link{
+    background-color:#F1B24A ;
+    padding: 1em 0 0 0;
+}
+
+.navbar{
+    position: fixed;
+    background-color:#4D774E ;
+    width: 100%;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 100%;
+    transition: transform 500ms;
+}
+
+.nav-list{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 50%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-link{
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.nav-link:hover,
+.nav-link:focus{
+    color: #F1B24A;
+}
+
+.close-nav{
+    border: 0;
+    background: 0;
+    color: #F1B24A;
+    font-size: 3rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: .5em;
+    position: absolute;
+}
+.open-nav{
+    border: 0;
+    background: 0;
+    color: #F1B24A;
+    font-size: 1.5rem ;
+    cursor: pointer;
+    padding: .5em;
+    margin-left:auto;
+}
+.navigation-open{
+    transform: translateX(-100%);
+    opacity: 0.9;
+}
+
+.current-page{
+    border-bottom: 1px solid #F1B24A ;
+    padding-bottom: .3em;
+}
+
+@media (min-width: 600px){
+    .open-nav,
+    .close-nav{
+        display: none;
+    }
+
+    .navbar{
+        position: initial;
+    }
+
+    .nav-list{
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-top: 1em;
+    }    
+    .nav-link{        
+        font-size: .825rem;
+        font-weight: 700;
+        margin-left: 2em;
+
+    }
+    .header-home .navbar{
+        background: transparent;
+    }
+}
+/* ---------------------------------
+        Welcome Area
+------------------------------------*/
+
+.welcome{
+    background-image: url(../images/background.jpg);
+    background-position: bottom;
+    background-size: cover;
+    object-fit: cover;
+    color: #fff;
+    padding: 8em 0 4em;
+    margin-bottom: 2em; 
+}
+
+.welcome > *{
+    grid-column: 2/-2;
+
+}
+@media (min-width:400px) {
+    .welcome > *{
+        margin-right: 20%;
+    }
+    
+}
+
+@media (min-width: 600px){
+
+    .welcome > *{
+        grid-column: 2/span 2;
+    }
+}
+
+.welcome-title{    
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+.welcome-subtitle{
+    margin: 2em 0;
+}
+span{
+    color: #F1B24A;
+}
+
+.btn-yellow{
+    background-color: #F1B24A;
+    color: #164A41;
+    justify-self: start;
+}
+
+.btn-yellow:hover,
+.btn-yellow:focus{
+    background-color:#9DC88D;
+}
+/* Intro */
+.intro{
+    grid-column: 2/-2;
+    text-align: center;
+}
+
+@media (min-width: 600px) {
+    .intro{
+        grid-column: span 1;
+    }
+    .intro:first-child{
+        grid-column: 2/span 1;
+    }
+}
+
+.intro{
+    padding: 2em 0;
+}
+
+.intro-title{
+    color: #164A41 ;
+    font-size: 1.125rem;
+    margin-top: 1em;
+    margin-bottom: 1.125em;
+}
+
+.intro-title::after{
+    content: " ";
+    display: block;
+    width: 60px;
+    height: 2px;
+    margin-top: 10px ;
+    background-color: #F1B24A ;
+}
+
+.intro-title:first-child{
+    margin-top: 0;
+}
+
+.intro-title-center{
+    text-align: center;
+}
+.intro-title-center::after{
+    margin: 10px auto 0 auto;
+
+}
+
+
+/* Footer */
+
+footer{
+    background-color: #9DC88D;
+    padding: 3em ;
+    grid-template-areas: 
+        ". social ."
+        ". main .";
+}
+
+.footer-social-list,
+.footer-main{
+    grid-column: 2/-2;
+    text-align: center;
+}
+.footer-main{
+    grid-area: main;
+}
+.footer-social-list{
+    grid-area: social;
+    list-style: none;  
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 2em 0;
+}
+
+.social-link{
+    text-decoration: none;
+    color: #164A41;
+    font-size: 1.75rem;
+    margin: 0 .5em;
+}
+
+.social-link:hover,
+.social-link:focus{
+    color: #4D774E ;
+}
+
+.footer-logo,
+.footer-main-text,
+.copyright{
+    opacity: .5;
+
+}
+
+.copyright{
+    font-size: .825rem;
+    margin-top: 3em;
+}
+
+@media (min-width: 600px) {
+    .footer{
+        grid-template-areas: 
+            ". main main social .";
+    }
+
+    .footer-main{
+        text-align: left;
+    }
+
+    .footer-social-list{
+        justify-self: right;
+    }
+}
+
+
+/* -----------------------
+About-us page style (template page)
+--------------------------*/
+/* small screen first */
+.main-template {
+    padding: 4em 0;
+}
+.main-template > *{
+    grid-column: 2/-2;
+}
+
+@media (min-width: 600px) {
+    .main-image{
+        grid-column: 2;
+    }
+    .main-text{
+        grid-column: 3/span 2;
+    }
+}
+
+.main-image{
+    margin-bottom: 1em;
+    box-shadow: 5px 5px 0 #164A41, 10px 10px 0 #F1B24A ;
+}
+
+@media (min-width: 600px) {
+    .main-image,
+    .secondary-text {
+        grid-column: 2;
+    }
+    
+    .main-text {
+        grid-column: 3 / span 2;
+        grid-row: span 2;
+    }
+    .secondary-text{
+        order: 2;
+    }  
+}
+
+/* ------------------------
+        FORM
+--------------------------- */
+.contact-form{
+    display: grid;
+}
+
+input, 
+textarea{
+    border: 1px solid #164A41;
+    padding: .4em 0;
+    margin-bottom: .5em;
+    font-family: inherit;
+}
+
+label{
+    font-weight: 700;
+}
+
+textarea{
+    resize: none;
+    height: 150px;
+}
+
+.btn-form{
+    border: 0;
+    justify-self: end;
+}
+
+@media (min-width: 600px){
+    .contact-form{
+        grid-template-columns: repeat(2,1fr);
+        grid-auto-flow: dense;
+        column-gap: 1em;
+    }
+    .fname-label,
+    .fname-input{
+        grid-column: 1;
+    }
+    .email-label,
+    .email-input{
+        grid-column: 2;
+    }
+
+    .message-label,
+    .message-textarea{
+        grid-column: span 2;
+    }
+}
