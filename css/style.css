@@ -1,24 +1,5 @@
-/* 
-
-Dark Green: #164A41
-
-Medium Green: #4D774E
-
-Light Green: #9DC88D
-
-Natural Yellow: #F1B24A
-
-White: #FFFFFF 
-
-font-family: 'Montserrat', sans-serif;
-*/
-
 *{
     box-sizing: border-box;
-    /* 
-    Add a css reset to the top of your website style sheet, different browsers render some 
-    default margin and padding and perhaps external style sheets do something you are not aware of too,
-    a css reset will just initialize a fresh palette so to speak */
     margin: 0;
     padding: 0;
     border: 0;
@@ -52,14 +33,12 @@ img{
 }
 
 
-
 @media (min-width: 600px){
     .main-grid{
         grid-template-columns: minmax(1em, 1fr) repeat(3, minmax(180px,320px))  minmax(1em, 1fr);
 
     } 
 }
-
 
 /* ---------------------------------
         Typography
@@ -288,6 +267,7 @@ span{
 .btn-yellow:focus{
     background-color:#9DC88D;
 }
+
 /* Intro */
 .intro{
     grid-column: 2/-2;
